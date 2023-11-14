@@ -1,9 +1,9 @@
 pipeline {
-    agent any // This means the pipeline can run on any available agent
+    agent { docker { image 'ruby:3.2.2-alpine3.18' } }
     stages {
-        stage('Hello') { // This is the name of the stage
+        stage('build') {
             steps {
-                echo 'Hello World' // This is the command to print the hello world
+                sh 'ruby --version'
             }
         }
     }
